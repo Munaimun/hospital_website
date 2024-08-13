@@ -1,11 +1,11 @@
-const About = () => {
+const Blog = () => {
   return (
     <div className="container mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-4">About Us</h2>
+      <h2 className="text-2xl font-bold mb-4">Blog Us</h2>
       <div className="flex flex-col lg:flex-row items-center">
         <img
           src="https://via.placeholder.com/400"
-          alt="About Us"
+          alt="Blog Us"
           className="w-full lg:w-1/2 h-auto mb-4 lg:mb-0"
         />
         <div className="lg:ml-8">
@@ -20,4 +20,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Blog;

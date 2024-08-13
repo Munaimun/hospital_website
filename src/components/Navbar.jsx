@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="bg-sky-500 shadow-md p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Left Part */}
-        <div className="text-lg font-bold text-primary">
+        <div className="text-lg font-bold text-white">
           <Link to="/">Oebic Hospital</Link>
         </div>
 
@@ -18,16 +18,16 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/doctors"
+            to="/departments"
             className="text-white hover:text-blue-700 transition-colors duration-300"
           >
-            Doctors
+            Departments
           </Link>
           <Link
-            to="/about"
+            to="/blog"
             className="text-white hover:text-blue-700 transition-colors duration-300"
           >
-            About Us
+            Blog
           </Link>
           <Link
             to="/contact"
@@ -41,7 +41,7 @@ const Navbar = () => {
         <div>
           <Link
             to="/appointment"
-            className="bg-white text-black py-2 px-4 rounded hover:bg-sky-600 transition-colors duration-300"
+            className="bg-white text-black py-2 px-4 rounded hover:bg-black hover:text-white transition-colors duration-300"
           >
             Make an Appointment
           </Link>

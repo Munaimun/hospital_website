@@ -1,16 +1,47 @@
 import { Link } from "react-router-dom";
-
 import { FaBed, FaAmbulance, FaHospital } from "react-icons/fa";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Image imports
 import home_doctor from "../assets/home_doctor.jpg";
 import eye_care from "../assets/eye_care.jpeg";
 import physical_therapy from "../assets/physical_therapy.jpeg";
 import dental_care from "../assets/dental_care.jpeg";
-import diagnost from "../assets/diagnostic_test.jpeg";
-import skinCare from "/src/assets/skin_sugery.jpeg";
-import sugery from "/src/assets/sergury_services.jpeg";
+import diagnostic_test from "../assets/diagnostic_test.jpeg";
+import skin_surgery from "/src/assets/skin_sugery.jpeg";
+import surgery_service from "/src/assets/skin_sugery.jpeg";
+
+// Array of quotes with corresponding images
+const quotes = [
+  {
+    img: home_doctor,
+    text: "Caring for the whole person, not just the body.",
+  },
+  {
+    img: eye_care,
+    text: "Vision is the art of seeing what is invisible to others.",
+  },
+  {
+    img: physical_therapy,
+    text: "Healing is a matter of time, but it is sometimes also a matter of opportunity.",
+  },
+];
 
 const Home = () => {
+  // Settings for the react-slick carousel
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
   return (
     <div className="container mx-auto py-8">
       {/* FIRST SECTION */}
@@ -155,7 +186,7 @@ const Home = () => {
           {/* Department 4: Diagnostic Test */}
           <div className="bg-white p-6 rounded-lg shadow-md text-center">
             <img
-              src={diagnost}
+              src={diagnostic_test}
               alt="Diagnostic Test"
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
@@ -169,7 +200,7 @@ const Home = () => {
           {/* Department 5: Skin Surgery */}
           <div className="bg-white p-6 rounded-lg shadow-md text-center">
             <img
-              src={skinCare}
+              src={skin_surgery}
               alt="Skin Surgery"
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
@@ -182,16 +213,38 @@ const Home = () => {
           {/* Department 6: Surgery Service */}
           <div className="bg-white p-6 rounded-lg shadow-md text-center">
             <img
-              src={sugery}
+              src={surgery_service}
               alt="Surgery Service"
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
             <h3 className="text-xl font-semibold mb-2">Surgery Service</h3>
             <p className="text-gray-600">
-              Advanced surgical procedures with a focus on patient care and
-              recovery.
+              Advanced surgical services with expert surgeons and cutting-edge
+              technology.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Sliding Quotes */}
+      <section className="py-8">
+        <div className="container mx-auto">
+          <Slider {...sliderSettings}>
+            {quotes.map((quote, index) => (
+              <div key={index} className="relative h-64">
+                <img
+                  src={quote.img}
+                  alt="Health Quote"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                  <p className="text-white text-2xl font-semibold">
+                    {quote.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
     </div>
