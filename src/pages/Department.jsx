@@ -105,7 +105,7 @@ const Department = () => {
                   alt={department.name}
                   className="w-full h-40 object-cover mb-4 rounded"
                 />
-                <h3 className="text-xl font-semibold text-center">
+                <h3 className="text-xl text-sky-500 font-semibold text-center">
                   {department.name}
                 </h3>
                 <p className="text-center">{department.description}</p>
