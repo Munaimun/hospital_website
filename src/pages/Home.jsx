@@ -57,7 +57,7 @@ const Home = () => {
             with a personal touch.
           </p>
           <Link
-            to="/services"
+            to="/departments"
             className="bg-sky-500 text-white py-2 px-6 rounded hover:bg-sky-600 transition-colors duration-300 inline-block"
           >
             Check Our Services
