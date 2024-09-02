@@ -16,7 +16,7 @@ const MakeAppointment = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center ">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg"
