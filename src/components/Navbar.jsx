@@ -2,114 +2,115 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  // State to manage the mobile menu visibility
   const [isOpen, setIsOpen] = useState(false);
 
+  // Toggle the mobile menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  // Close the mobile menu when a menu item is clicked
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className="bg-sky-500 shadow-md p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Left Part */}
-        <div className="text-lg font-bold text-white">
-          <Link to="/">Oebic Hospital</Link>
-        </div>
-
-        {/* Burger Menu Icon for Mobile */}
-        <div className="md:hidden">
-          {!isOpen && (
-            <button
-              onClick={toggleMenu}
-              className="text-white focus:outline-none"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
-            </button>
-          )}
-        </div>
-
-        {/* Middle Part - Links */}
-        <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } md:flex flex-grow justify-center space-y-2 md:space-y-0 md:space-x-4 mt-4 md:mt-0`}
-        >
+    <>
+      <nav className="bg-white border-gray-200 dark:bg-cyan-400 text-white fixed w-full z-20 top-0 left-0">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             to="/"
-            className="text-white hover:text-blue-700 transition-colors duration-300 block md:inline-block"
-            onClick={() => setIsOpen(false)} // Close the menu on click
+            className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            Home
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              RaddSoft
+            </span>
           </Link>
-          <Link
-            to="/departments"
-            className="text-white hover:text-blue-700 transition-colors duration-300 block md:inline-block"
-            onClick={() => setIsOpen(false)} // Close the menu on click
+          <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            onClick={toggleMenu}
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded={isOpen}
           >
-            Departments
-          </Link>
-          <Link
-            to="/blog"
-            className="text-white hover:text-blue-700 transition-colors duration-300 block md:inline-block"
-            onClick={() => setIsOpen(false)} // Close the menu on click
-          >
-            Blog
-          </Link>
-          <Link
-            to="/contact"
-            className="text-white hover:text-blue-700 transition-colors duration-300 block md:inline-block"
-            onClick={() => setIsOpen(false)} // Close the menu on click
-          >
-            Contact
-          </Link>
-
-          {/* Mobile Menu - Appointment Button */}
-          <Link
-            to="/appointment"
-            className="bg-white text-black py-2 px-4 rounded hover:bg-black hover:text-white transition-colors duration-300 block md:hidden"
-            onClick={() => setIsOpen(false)} // Close the menu on click
-          >
-            Make an Appointment
-          </Link>
-
-          {/* Close Button - Appears at the end */}
-          {isOpen && (
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white focus:outline-none mt-4 md:hidden"
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
+              <path
                 stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          )}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+
+          {/* Menu links */}
+          <div
+            className={`${
+              isOpen ? "block" : "hidden"
+            } w-full md:block md:w-auto`}
+            id="navbar-default"
+          >
+            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+              <li>
+                <Link
+                  to="/"
+                  className="py-2 px-3 text-white md:p-0 hover:bg-gray-200 hover:text-sky-600 md:hover:bg-transparent hover:rounded-md transition duration-300 ease-in-out"
+                  aria-current="page"
+                  onClick={closeMenu}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/departments"
+                  className="py-2 px-3 text-white hover:bg-gray-200 hover:text-sky-600 md:hover:bg-transparent hover:rounded-md transition duration-300 ease-in-out"
+                  onClick={closeMenu}
+                >
+                  Departments
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="py-2 px-3 text-white hover:bg-gray-200 hover:text-sky-600 md:hover:bg-transparent hover:rounded-md transition duration-300 ease-in-out"
+                  onClick={closeMenu}
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="py-2 px-3 text-white hover:bg-gray-200 hover:text-sky-600 md:hover:bg-transparent hover:rounded-md transition duration-300 ease-in-out"
+                  onClick={closeMenu}
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/appointment"
+                  className="py-2 px-3 text-white hover:bg-gray-200 hover:text-sky-600 md:hover:bg-transparent hover:rounded-md transition duration-300 ease-in-out"
+                  onClick={closeMenu}
+                >
+                  Appointment
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

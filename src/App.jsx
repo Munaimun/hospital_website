@@ -6,10 +6,13 @@ import Department from "./pages/Department";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import MakeAppointment from "./pages/MakeAppointment";
+import ScrollToUp from "./components/ScrollToUp";
 
 function App() {
   return (
     <Router>
+      <ScrollToUp />
+
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">

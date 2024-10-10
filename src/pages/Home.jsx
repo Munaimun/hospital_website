@@ -43,7 +43,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 mt-14">
       {/* FIRST SECTION */}
       <section className="flex flex-col md:flex-row items-center md:justify-between mb-8">
         {/* Left Side - Quote */}
